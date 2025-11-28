@@ -213,7 +213,7 @@
 
     <script>
         function brandToggle() {
-            const owner = document.querySelector('input[name="brand_owner"]:checked').value;
+            const owner = document.querySelector('input[name="brandOwner"]:checked').value;
             document.getElementById("brand_div").style.display = owner === "Yes" ? "block" : "none";
             document.getElementById("brand").required = owner === "Yes";
         }
@@ -237,7 +237,7 @@ document.getElementById("ads_form").addEventListener("submit", function(e) {
 
     // Reject simple sequences
     const simplePatterns = [
-        '0123456789', '1234567890', '1234561234', 
+        '0123456789', '1234567890', '1234561234','0987654321','9876543210','9807645231',
         '1111111111','2222222222','3333333333','4444444444',
         '5555555555','6666666666','7777777777','8888888888','9999999999'
     ];
