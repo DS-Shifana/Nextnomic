@@ -116,22 +116,24 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Are you a Brand Owner?</label><br>
-                            <label><input type="radio" name="brandOwner" value="Yes" required> Yes</label>
-                            <label class="ml-3"><input type="radio" name="brandOwner" value="No"> No</label>
+                            <label><input type="radio" name="brandOwner" value="Yes" onchange="brandToggle()" required> Yes</label>
+                            <label class="ml-3"><input type="radio" name="brandOwner" value="No" onchange="brandToggle()" required checked> No</label>
                         </div>
                     </div>
 
                     <!-- Row 5 -->
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Brand (Optional)</label>
-                            <input type="text" name="brand" class="form-control">
-                        </div>
+                        <div class="form-group col-md-6" id="brand_div" style="display:none;">
+                                <label>Brand Name</label>
+                                <input type="text" id="brand" class="form-control">
+                            </div>
                         <div class="form-group col-md-6">
                             <label>Any of your ASINs (Optional)</label>
                             <input type="text" name="asin" class="form-control">
                         </div>
                     </div>
+                    </div>
+                    
 
                     <!-- Submit -->
                     <div class="text-center mt-4">
@@ -145,7 +147,13 @@
     </div>
 </div>
 
-
+<script>
+        function brandToggle() {
+            const owner = document.querySelector('input[name="brandOwner"]:checked').value;
+            document.getElementById("brand_div").style.display = owner === "Yes" ? "block" : "none";
+            document.getElementById("brand").required = owner === "Yes";
+        }
+    </script>
 
 <script>
 document.getElementById("whatsappForm").addEventListener("submit", function(e) {
@@ -165,7 +173,7 @@ document.getElementById("whatsappForm").addEventListener("submit", function(e) {
 
     // Reject simple sequences
     const simplePatterns = [
-        '0123456789', '1234567890', '1234561234', 
+        '0123456789', '1234567890', '1234561234', '0987654321','9876543210',
         '1111111111','2222222222','3333333333','4444444444',
         '5555555555','6666666666','7777777777','8888888888','9999999999'
     ];
