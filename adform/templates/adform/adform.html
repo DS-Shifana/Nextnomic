@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextnomic Ads Form</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<style>
+    .form-container {
+        padding: 2rem;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+
+    .sidebar {
+        background-color: #013220;
+        padding: 2rem;
+        text-align: center;
+        color: white;
+    }
+
+    #card-div {
+        display: none;
+    }
+
+    .four h1 {
+        text-align: center;
+        padding-bottom: 0.7em;
+    }
+
+    .four h1 span {
+        font-weight: 300;
+        word-spacing: 3px;
+        line-height: 2em;
+        padding-bottom: 0.35em;
+        color:#1e824c;
+    }
+</style>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #013220;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/static/nnlogo.png" style="width:10rem;">
+            </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid" id="main-form-div">
+
+        <div class="four">
+            <h1><em>Learn Amazon</em> <span>Ads Free</span><em>Enroll Now</em></h1>
+        </div>
+
+        <div class="row mt-4">
+
+            <!-- LEFT SIDEBAR -->
+            <div class="col-lg-4 sidebar">
+                <h4>Connect With Us</h4>
+                <img src="/static/ads.jpeg" class="img-fluid">
+            </div>
+
+            <!-- FORM -->
+            <div class="col-lg-8 col-md-12">
+                <div class="form-container">
+
+                <form method="POST" id="ads_form" action="{% url 'ad_form' %}">
+                    {% csrf_token %}        
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Full Name</label>
+                                <input type="text" id="fullname" name="fullName" class="form-control" required>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label>Country Code</label>
+                                <select id="country_code" name="countryCode" class="form-control" required>
+                                    <option value="">Select</option>
+                                    <option value="+91">+91</option>
+                                    <option value="+1">+1</option>
+                                    <option value="+971">+971</option>
+                                    <option value="+44">+44</option>
+                                    <option value="+61">+61</option>
+                                    <option value="+92">+92</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-8">
+                                <label>WhatsApp Number</label>
+                                <input type="text" id="whatsapp_number" name="whatsappNumber" class="form-control" maxlength="16" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                            <label>Country</label>
+                            <select name="country" class="form-control" required>
+                                <option>India</option>
+                                <option>USA</option>
+                                <option>UAE</option>
+                                <option>Canada</option>
+                                <option>UK</option>
+                                <option>Australia</option>
+                            </select>
+                        </div>
+
+                            <div class="form-group col-md-6">
+                                <label>State / Region</label>
+                                <input type="text" id="state" name="state" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label>Are you an Amazon Seller?</label><br>
+
+                                <div class="form-check">
+                                    <input type="radio" name="amazonSeller" value="Yes" class="form-check-input" required>
+                                    <label class="form-check-label">Yes</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="amazonSeller" value="No" class="form-check-input" required>
+                                    <label class="form-check-label">No</label>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>who is managing your ads?</label><br>
+
+                                <div class="form-check">
+                                    <input type="radio" name="adManager" value="Self" class="form-check-input" required>
+                                    <label class="form-check-label">Self</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="adManager" value="Staff" class="form-check-input" required>
+                                    <label class="form-check-label">Staff</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" name="adManager" value="Third Party" class="form-check-input" required>
+                                    <label class="form-check-label">Third Party</label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label>Are you a Brand Owner?</label><br>
+
+                                <div class="form-check">
+                                    <input type="radio" name="brandOwner" value="Yes" class="form-check-input" onchange="brandToggle()" required>
+                                    <label class="form-check-label">Yes</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="brandOwner" value="No" class="form-check-input" onchange="brandToggle()" required checked>
+                                    <label class="form-check-label">No</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6" id="brand_div" style="display:none;">
+                                <label>Brand Name</label>
+                                <input type="text" id="brand" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>ASIN (optional)</label>
+                            <input type="text" id="asin" class="form-control">
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success mt-3">Submit</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUCCESS CARD -->
+    <div class="card" id="card-div" style="height: 100vh;">
+        <div style="border-radius:200px; height:200px; width:200px; background:#F8FAF5; margin: auto; margin-top:3rem; display:flex; justify-content:center; align-items:center;">
+            <i style="font-size:3rem; color:green;">✓</i>
+        </div>
+
+        <h1 class="text-center mt-3">Success</h1>
+        <p class="text-center">Thanks for joining with Nextnomic.<br>You can download the PPC Course here.</p>
+
+        
+
+    <script>
+        function brandToggle() {
+            const owner = document.querySelector('input[name="brand_owner"]:checked').value;
+            document.getElementById("brand_div").style.display = owner === "Yes" ? "block" : "none";
+            document.getElementById("brand").required = owner === "Yes";
+        }
+    </script>
+
+    <script>
+document.getElementById("ads_form").addEventListener("submit", function(e) {
+    e.preventDefault(); // Stop default submission
+
+    const countryCode = document.querySelector('select[name="countryCode"]').value;
+    const numberInput = document.querySelector('input[name="whatsappNumber"]');
+    const number = numberInput.value.trim();
+
+    // Validate 10-digit number
+    const regex = /^\d{10}$/;
+    if (!regex.test(number)) {
+        alert("Please enter a valid 10-digit WhatsApp number.");
+        numberInput.focus();
+        return;
+    }
+
+    // Reject simple sequences
+    const simplePatterns = [
+        '0123456789', '1234567890', '1234561234', 
+        '1111111111','2222222222','3333333333','4444444444',
+        '5555555555','6666666666','7777777777','8888888888','9999999999'
+    ];
+    if (simplePatterns.includes(number)) {
+        alert("Please enter a valid WhatsApp number, not a simple sequence.");
+        numberInput.focus();
+        return;
+    }
+
+   
+    this.submit();  // Submit the form to Django backend
+   
+});
+</script>
+<script>
+document.getElementById("ads_form").addEventListener("submit", function (e) {
+
+    // FULL NAME
+    const fullName = document.getElementById("fullname").value.trim();
+    if (fullName.length < 3) {
+        alert("Full name must be at least 3 characters.");
+        e.preventDefault();
+        return;
+    }
+
+    // EMAIL
+    const email = document.getElementById("email").value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Enter a valid email address.");
+        e.preventDefault();
+        return;
+    }
+
+    // COUNTRY CODE
+    const code = document.getElementById("country_code").value;
+    if (code === "") {
+        alert("Please select a country code.");
+        e.preventDefault();
+        return;
+    }
+
+    // WHATSAPP NUMBER
+    const whatsapp = document.getElementById("whatsapp_number").value.trim();
+    const numberRegex = /^\d+$/;
+    if (!numberRegex.test(whatsapp)) {
+        alert("WhatsApp number must contain only digits.");
+        e.preventDefault();
+        return;
+    }
+    if (whatsapp.length < 7 || whatsapp.length > 16) {
+        alert("WhatsApp number must be between 7 and 16 digits.");
+        e.preventDefault();
+        return;
+    }
+
+    // COUNTRY
+    const country = document.getElementById("country").value.trim();
+    if (country === "") {
+        alert("Country is required.");
+        e.preventDefault();
+        return;
+    }
+
+    // STATE
+    const state = document.getElementById("state").value.trim();
+    if (state === "") {
+        alert("State/Region is required.");
+        e.preventDefault();
+        return;
+    }
+
+    // AMAZON SELLER
+    const amazonSeller = document.querySelector('input[name="amazonSeller"]:checked');
+    if (!amazonSeller) {
+        alert("Please select whether you are an Amazon seller.");
+        e.preventDefault();
+        return;
+    }
+
+    // AD MANAGER
+    const adManager = document.querySelector('input[name="adManager"]:checked');
+    if (!adManager) {
+        alert("Please select who is managing your ads.");
+        e.preventDefault();
+        return;
+    }
+
+    // BRAND OWNER
+    const brandOwner = document.querySelector('input[name="brandOwner"]:checked').value;
+    const brandName = document.getElementById("brand").value.trim();
+
+    if (brandOwner === "Yes" && brandName === "") {
+        alert("Brand name is required if you are a Brand Owner.");
+        e.preventDefault();
+        return;
+    }
+    this.submit(); 
+});
+</script>
+
+
+
+</body>
+</html>

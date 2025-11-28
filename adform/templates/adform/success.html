@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Success</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AUTO DOWNLOAD SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const link = document.createElement("a");
+      link.href = "{{ pdf_path }}";
+      link.download = "Nextnomic-Free-Amazon-Ads-Guide.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  </script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    /* #card-div {
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    } */
+    .check-circle {
+      font-size: 3rem;
+      color: green;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+
+  <div class="min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-xl shadow-lg text-center max-w-md border border-green-200">
+      <div class="rounded-full h-48 w-48 bg-gray-50 flex items-center justify-center mb-6">
+        <span class="text-6xl text-green-600">✓</span>
+      </div>
+
+      <h1 class="text-3xl font-bold text-gray-800 mb-4">Success</h1>
+      <p class="text-gray-600 mb-6">
+        Thanks for joining with us!
+        <br /> Your submission was successful.
+      </p>
+      
+    </div>
+  </div>
+
+</body>
+
+</html>

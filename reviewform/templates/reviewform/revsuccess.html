@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #card-div {
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    }
+    .check-circle {
+      font-size: 3rem;
+      color: green;
+    }
+    .btn-wa {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Success card -->
+  <div id="card-div" class="card mt-4">
+    <div class="card-body">
+      <div class="check-circle mb-3">✓</div>
+      <h2>Success</h2>
+      <p>Thanks for joining!</p>
+      <div class="text-center">
+        <a href="#" id="wa-btn" class="btn btn-success btn-wa">Connect Us</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // WhatsApp number and default message
+    const whatsappNumber = "918129559669"; // Replace with your number
+    const defaultMessage = "Hi, I have successfully joined the Free Amazon Reviews!";
+    const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`;
+
+    // Redirect automatically after 3 seconds
+    setTimeout(() => {
+      window.location.href = waUrl;
+    }, 3000);
+
+    // Optional: immediate redirect if button clicked
+    document.getElementById('wa-btn').addEventListener('click', () => {
+      window.location.href = waUrl;
+    });
+  </script>
+
+</body>
+</html>
