@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-fges1rg$lpor#!q*^6!l^b+tmwq^kfn22_dgctbjdj7#^kh232'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nextnomic.pythonanywhere.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
