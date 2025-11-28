@@ -37,7 +37,7 @@ def ad_form(request):
         # Redirect to success page
         return redirect('success')
 
-    return render(request, "adform/adform.html")
+    return render(request, "adform/index.html")
 
 
 def success(request):
