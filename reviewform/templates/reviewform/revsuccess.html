@@ -41,27 +41,25 @@
       <h2>Success</h2>
       <p>Thanks for joining!</p>
       <div class="text-center">
-        <a href="#" id="wa-btn" class="btn btn-success btn-wa">Connect Us</a>
+        <a id="wa-btn" class="btn btn-success btn-wa">Connect Us</a>
       </div>
     </div>
   </div>
 
   <script>
-    // WhatsApp number and default message
-    const whatsappNumber = "917593852394"; // Replace with your number
-    const defaultMessage = "Hi, I have successfully joined the Free Amazon Reviews!";
-    const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`;
+  const whatsappNumber = "917593852394";
+  const defaultMessage = "Hi! I have successfully joined the Free Amazon Reviews program.";
+  const waUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(defaultMessage)}`;
 
-    // Redirect automatically after 3 seconds
-    setTimeout(() => {
+  setTimeout(() => {
       window.location.href = waUrl;
-    }, 3000);
+  }, 3000);
 
-    // Optional: immediate redirect if button clicked
-    document.getElementById('wa-btn').addEventListener('click', () => {
+  document.getElementById("wa-btn").addEventListener("click", () => {
       window.location.href = waUrl;
-    });
-  </script>
+  });
+</script>
+
 
 </body>
 </html>
